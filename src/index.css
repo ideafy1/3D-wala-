@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateY(-50vh) rotate(180deg) scale(1.2);
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg) scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes float3D {
+  0% {
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1);
+  }
+  50% {
+    transform: perspective(1000px) rotateX(15deg) rotateY(15deg) scale(1.05);
+  }
+  100% {
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1);
+  }
+}
+
+.animate-float { animation: float 3s ease-in infinite; }
+.animate-heartbeat { animation: heartbeat 1.5s ease-in-out infinite; }
+.animate-float3D { animation: float3D 3s ease-in-out infinite; }
+
+.heart-particle {
+  position: absolute;
+  pointer-events: none;
+  animation: float 2s ease-out forwards;
+}
+
+body {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  overflow-x: hidden;
+}
